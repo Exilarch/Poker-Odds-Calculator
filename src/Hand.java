@@ -17,4 +17,7 @@ public class Hand {
     public void addCard(Card c) {
         currCards.add(c);
     }
+    public void removeCard(Card c) {
+        currCards.remove(c);
+    }
 }

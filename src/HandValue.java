@@ -22,6 +22,9 @@ public class HandValue {
     public void addHigh(Value v) {
         highValues.add(v);
     }
+    public Ranking getHandValue() {
+        return Rank;
+    }
     public static HandValue evaluate(Hand h) {
         HandValue r;
         ArrayList<Card> cards = h.getCardList();
@@ -32,16 +35,14 @@ public class HandValue {
         ArrayList<Card> diamondNum = new ArrayList<Card>();
         ArrayList<Card> heartNum = new ArrayList<Card>();
         for (Card c : cards) {
-            switch(c.getSuit()) {
-                case SPADE:
-                    spadeNum.add(c);
-                case CLUB:
-                    clubNum.add(c);
-                case DIAMOND:
-                    diamondNum.add(c);
-                case HEART:
-                    heartNum.add(c);
-
+            if (c.getSuit() == Card.Suit.SPADE) {
+                spadeNum.add(c);
+            } else if (c.getSuit() == Card.Suit.CLUB) {
+                clubNum.add(c);
+            } else if (c.getSuit() == Card.Suit.DIAMOND) {
+                diamondNum.add(c);
+            } else if (c.getSuit() == Card.Suit.HEART) {
+                heartNum.add(c);
             }
         }
         boolean spadeFlush = false;
